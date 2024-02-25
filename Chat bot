@@ -1,35 +1,17 @@
-const lib = require('lib')({token: process.env.STDLIB_SECRET_TOKEN});
-let activitynameslist = [
-  `Autocode`,
-  `Jolly Entertainment`,
-  `Hello there!`,
-]
-let ActivityChoice = Math.floor(Math.random() * activitynameslist.length);
-let activity = activitynameslist[ActivityChoice];
+const Discord = require('discord.js');
+const client = new Discord.Client();
 
-// Do not add some random Things from this part. Discord has limited activity type and status.
-// ONLINE, DND, IDLE.
-// Activity Type List 
-let activitytypelist = [
-  `Watching`,
-  `LISTENING`,
-  `WATCHING`,
-  `COMPETING`,
-]
-let ActypeChoice = Math.floor(Math.random() * activitytypelist.length);
-let activitytype = activitytypelist[ActypeChoice];
-// End of Activity Type
-//Start of status
-let status = [
-  `IDLE`,
-  `DND`,
-  `IDLE`,
-]
-let statusChoice = Math.floor(Math.random() * status.length);
-let statustype = status[statusChoice];
-
-let result = await lib.discord.users['@0.1.1'].me.status.update({
-  activity_name: `${activity}`,
-  activity_type: `${activitytype}`,
-  status: `${statustype}`
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+  
+  // Set bot status
+  client.user.setPresence({
+    status: 'idle', // You can also use 'idle', 'dnd', or 'invisible'
+    activity: {
+      name: 'Playing Pastebin',
+      type: 'PLAYING' // You can also use 'STREAMING', 'LISTENING', or 'WATCHING'
+    }
+  });
 });
+
+client.login('MTIwODY2MzAwODQwMjg3NDM4OQ.GoEFW0.qnyHPj_DDwZHbL0iDEsUiGqniPSbsFun3RHab0');
