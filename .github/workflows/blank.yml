@@ -8,7 +8,7 @@ client.on('ready', () => {
   client.user.setPresence({
     status: 'online', // You can also use 'idle', 'dnd', or 'invisible'
     activity: {
-      name: 'Playing Pastebin',
+      name: 'Pastebin,
       type: 'PLAYING' // You can also use 'STREAMING', 'LISTENING', or 'WATCHING'
     }
   });
