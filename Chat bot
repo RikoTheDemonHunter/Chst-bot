@@ -2,16 +2,13 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
-  
-  // Set bot status
-  client.user.setPresence({
-    status: 'idle', // You can also use 'idle', 'dnd', or 'invisible'
-    activity: {
-      name: 'Playing Pastebin',
-      type: 'PLAYING' // You can also use 'STREAMING', 'LISTENING', or 'WATCHING'
-    }
-  });
+    console.log(`Logged in as ${client.user.tag}!`);
+    
+    // Set status to idle
+    client.user.setStatus('idle'); // Other options: 'dnd' (do not disturb), 'invisible'
+
+    // Optionally, set an activity
+    client.user.setActivity('with Discord.js', { type: 'PLAYING' });
 });
 
-client.login('MTIwODY2MzAwODQwMjg3NDM4OQ.GoEFW0.qnyHPj_DDwZHbL0iDEsUiGqniPSbsFun3RHab0');
+client.login('MTIwODY2MzAwODQwMjg3NDM4OQ.GfmCkz.WXrhWF1TwZbknizITcF-EaJVA3Rt0SMyYCHQFI');
